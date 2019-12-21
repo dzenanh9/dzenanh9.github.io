@@ -56,7 +56,7 @@ function whatMoreOver() {
 }
 var inst = null;
 var textMail = ["For Enquiries", "For Opportunities", "For Loveletters", "For 1 Million Dollar", "For Spam", "For Freelance jobs", "For Remote jobs", "For Amazing jobs"];
-var textThree = ["@wesley_ui", "@motiongarten", "@wesleyvanhart"]
+var textThree = ["@dzenanh9", "@ixsights"]
 var counter = 0;
 var intervalTime = 500;
 
@@ -74,7 +74,7 @@ function whatMoreOut() {
   document.querySelector('.what-more span').style.opacity = 1;
   document.querySelector('.what-more p').style.opacity = .6;
   clearInterval(inst);
-  whatMore.innerHTML = 'wesley@wvth.nl';
+  whatMore.innerHTML = 'hello.dzenan@gmail.com';
 }
 
 function threeOver () {

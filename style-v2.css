@@ -609,7 +609,12 @@ footer li a {
 	text-transform: uppercase;
   }  
   .credits a {
+	  width: 100px;
+	  height: 200px;
 	animation: heartbeat 1.4s infinite;
+  }
+  .credits img{
+	  width: 300px;
   }
 .tippy-tooltip.transparent-theme {
 	background-color: transparent;

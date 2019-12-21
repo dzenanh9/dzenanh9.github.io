@@ -17,13 +17,13 @@ var flkty = new Flickity( '.dragLayer-mobile', {
   wrapAround: true,
 });
 
-var flkty = new Flickity( '.dragLayer-4', {
-  cellAlign: 'left',
-  freeScroll: true,
-  prevNextButtons: false,
-  pageDots: false,
-  freeScrollFriction: 0.06
-});
+// var flkty = new Flickity( '.dragLayer-4', {
+//   cellAlign: 'left',
+//   freeScroll: true,
+//   prevNextButtons: false,
+//   pageDots: false,
+//   freeScrollFriction: 0.06
+// });
 
 var flkty = new Flickity( '.dragLayer-2', {
   cellAlign: 'center',
