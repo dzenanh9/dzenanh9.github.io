@@ -1,0 +1,1499 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7"><![endif]-->
+<!--[if IE 7]><html class="no-js lt-ie9 lt-ie8" <![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9" <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <title>Jezero - Restoran & Bar u Modracu | Restoran </title>
+    <meta name="description"
+        content="Restoran koji vodi naš tim u Modracu oslanja se na regionalne sastojke i tradicionalnu hranu iz regije.">
+    <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
+    <meta name="apple-mobile-web-app-title" content="Jezero">
+    <meta name="application-name" content="Jezero">
+    <meta name="theme-color" content="#ffffff">
+    
+
+
+    <style>
+        body {
+            position: relative;
+            overflow: hidden;
+            height: 100vh
+        }
+
+        .preloader {
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            display: block;
+            height: 100vh;
+            width: 100%;
+            background-color: #eeefea;
+            z-index: 99999
+        }
+
+        .preloader__content {
+            display: table;
+            border-collapse: collapse;
+            width: 100%;
+            height: 110px;
+            position: absolute;
+            top: 50%;
+            -webkit-transform: translateY(-50%);
+            transform: translateY(-50%)
+        }
+
+        .preloader__logo {
+            display: table-cell;
+            width: 200px;
+            height: 100%;
+            vertical-align: middle
+        }
+
+        @media (min-width:765px) {
+            .preloader__logo {
+                width: 330px
+            }
+        }
+
+        .preloader__logo__inner {
+            margin-top: 14px;
+            background-image: url(../img/logo-black.svg);
+            background-size: cover;
+            background-position: 50%;
+            background-repeat: no-repeat;
+            width: 100%
+        }
+
+        @media (min-width:765px) {
+            .preloader__logo__inner {
+                margin-top: 26px
+            }
+        }
+
+        .preloader__logo__inner:before {
+            content: "";
+            float: left;
+            padding-bottom: 22.1212121212%
+        }
+
+        .preloader__logo__inner:after {
+            content: "";
+            display: table;
+            clear: both
+        }
+
+        .preloader__bar {
+            display: table-cell;
+            vertical-align: middle
+        }
+
+        .preloader__bar--left {
+            padding-right: 20px
+        }
+
+        .preloader__bar--right {
+            padding-left: 20px
+        }
+
+        .preloader__bar__outer {
+            position: relative;
+            display: block;
+            height: 1px;
+            background-color: #1DB6E9
+        }
+
+        .preloader__bar__inner {
+            position: absolute;
+            left: 0;
+            top: -1px;
+            width: 100%;
+            height: 3px;
+            -webkit-transform: translateY(-50%);
+            transform: translateY(-50%);
+            background-color: #1DB6E9;
+            -webkit-animation: a 2.5s infinite ease;
+            animation: a 2.5s infinite ease;
+            -webkit-transform: scaleX(0);
+            transform: scaleX(0)
+        }
+
+        .preloader__bar__inner--left {
+            -webkit-transform-origin: right center;
+            transform-origin: right center
+        }
+
+        .preloader__bar__inner--right {
+            -webkit-transform-origin: left center;
+            transform-origin: left center
+        }
+
+        .preloader .continue-button {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+            margin-top: 100px;
+            display: none;
+            opacity: 0;
+            cursor: pointer
+        }
+
+        @-webkit-keyframes a {
+            0% {
+                -webkit-transform: scaleX(0);
+                transform: scaleX(0)
+            }
+
+            50% {
+                -webkit-transform: scaleX(1);
+                transform: scaleX(1)
+            }
+
+            to {
+                -webkit-transform: scaleX(0);
+                transform: scaleX(0)
+            }
+        }
+
+        @keyframes a {
+            0% {
+                -webkit-transform: scaleX(0);
+                transform: scaleX(0)
+            }
+
+            50% {
+                -webkit-transform: scaleX(1);
+                transform: scaleX(1)
+            }
+
+            to {
+                -webkit-transform: scaleX(0);
+                transform: scaleX(0)
+            }
+        }
+
+        .isMobile .header__wrapper {
+            top: 50%
+        }
+
+        .header {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+            background-color: #000;
+            -webkit-perspective: 800px;
+            perspective: 800px
+        }
+
+        .header__wrapper {
+            position: absolute;
+            left: 50%;
+            -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+            z-index: 25;
+            top: 50%
+        }
+
+        @media (min-width:960px) {
+            .header__wrapper {
+                top: 90px
+            }
+        }
+
+        .header__logo {
+            display: block;
+            width: 330px;
+            max-width: 70%;
+            margin: 0 auto;
+            background-image: url(https://www.voellerei.at/img/logo-white.svg)
+        }
+
+        .header__logo:before {
+            content: "";
+            float: left;
+            padding-bottom: 22.19065%
+        }
+
+        .header__logo:after {
+            content: "";
+            display: table;
+            clear: both
+        }
+
+        @media (min-width:765px) {
+            .header__logo {
+                max-width: none
+            }
+        }
+
+        .header__logo--black {
+            background-image: url(https://www.voellerei.at/img/logo-black.svg)
+        }
+
+        .header .menu {
+            width: 100%;
+            height: 100%
+        }
+
+        .header .menu .swiper-container {
+            width: 80%;
+            height: 50%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+            overflow: visible
+        }
+
+        @media (min-width:765px) {
+            .header .menu .swiper-container {
+                width: 50%
+            }
+        }
+
+        .header .menu .swiper-container .swiper-wrapper .swiper-slide {
+            opacity: .5;
+            -webkit-transition: opacity .4s ease-in;
+            transition: opacity .4s ease-in;
+            cursor: pointer;
+            visibility: hidden;
+            pointer-events: none
+        }
+
+        .header .menu .swiper-container .swiper-wrapper .swiper-slide__link {
+            display: none;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            z-index: 3
+        }
+
+        .header .menu .swiper-container .swiper-wrapper .swiper-slide__vignette {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background: radial-gradient(ellipse at center, rgba(0, 0, 0, .3) 0, rgba(0, 0, 0, .3) 30%, transparent 80%, transparent 100%);
+            display: block;
+            z-index: 1;
+            display: none
+        }
+
+        .header .menu .swiper-container .swiper-wrapper .swiper-slide .slide-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            -webkit-transform: translate3d(-50%, -50%, 1px);
+            transform: translate3d(-50%, -50%, 1px);
+            text-align: center;
+            z-index: 2
+        }
+
+        .header .menu .swiper-container .swiper-wrapper .swiper-slide .slide-content__headline {
+            display: none;
+            width: 100%;
+            color: #fff;
+            font-size: 37px;
+            margin-bottom: 20px;
+            max-width: 300px;
+            text-shadow: 1px 1px 1px rgba(0, 0, 0, .3)
+        }
+
+        .header .menu .swiper-container .swiper-wrapper .swiper-slide .slide-content__button {
+            display: none
+        }
+
+        .header .menu .swiper-container .swiper-wrapper .swiper-slide-active {
+            display: block;
+            opacity: 1;
+            cursor: auto
+        }
+
+        .header .menu .swiper-container .swiper-wrapper .swiper-slide-active .swiper-slide__link {
+            display: block
+        }
+
+        @-webkit-keyframes b {
+            50% {
+                -webkit-transform: scaleX(.1);
+                transform: scaleX(.1)
+            }
+
+            0% {
+                -webkit-transform: scaleX(1);
+                transform: scaleX(1)
+            }
+        }
+
+        @keyframes b {
+            50% {
+                -webkit-transform: scaleX(.1);
+                transform: scaleX(.1)
+            }
+
+            0% {
+                -webkit-transform: scaleX(1);
+                transform: scaleX(1)
+            }
+        }
+
+        .header .menu .swiper-container .swiper-wrapper .swiper-slide-active:hover .slide-content__button {
+            text-decoration: none;
+            padding-left: 0;
+            -webkit-transition: all .15s cubic-bezier(.455, .03, .515, .955) .15s;
+            transition: all .15s cubic-bezier(.455, .03, .515, .955) .15s
+        }
+
+        .header .menu .swiper-container .swiper-wrapper .swiper-slide-active:hover .slide-content__button:before {
+            -webkit-transform: scaleX(0);
+            transform: scaleX(0);
+            -webkit-transition: all .15s cubic-bezier(.455, .03, .515, .955);
+            transition: all .15s cubic-bezier(.455, .03, .515, .955)
+        }
+
+        .header .menu .swiper-container .swiper-wrapper .swiper-slide-active:hover .slide-content__button:after {
+            width: 100%;
+            -webkit-transition: all .15s cubic-bezier(.455, .03, .515, .955) 225ms;
+            transition: all .15s cubic-bezier(.455, .03, .515, .955) 225ms
+        }
+
+        .header .menu .swiper-container .swiper-wrapper .swiper-slide-active .slide-content__button.page-loading {
+            text-decoration: none;
+            padding-left: 0;
+            -webkit-transition: all .15s cubic-bezier(.455, .03, .515, .955) .15s;
+            transition: all .15s cubic-bezier(.455, .03, .515, .955) .15s
+        }
+
+        .header .menu .swiper-container .swiper-wrapper .swiper-slide-active .slide-content__button.page-loading:before {
+            -webkit-transform: scaleX(0);
+            transform: scaleX(0);
+            -webkit-transition: all .15s cubic-bezier(.455, .03, .515, .955);
+            transition: all .15s cubic-bezier(.455, .03, .515, .955)
+        }
+
+        .header .menu .swiper-container .swiper-wrapper .swiper-slide-active .slide-content__button.page-loading:after {
+            width: 100%;
+            -webkit-transform-origin: center center;
+            transform-origin: center center;
+            -webkit-animation: b 1s infinite;
+            animation: b 1s infinite
+        }
+
+        .header .menu .swiper-pagination {
+            left: 50%;
+            bottom: 15%;
+            -webkit-transform: translate3d(-50%, 0, 0);
+            transform: translate3d(-50%, 0, 0);
+            display: none
+        }
+
+        .header .menu .swiper-pagination .swiper-pagination-bullet {
+            display: inline-block;
+            width: 15px;
+            margin-right: 5px;
+            position: relative;
+            padding: 10px 0;
+            background-color: transparent;
+            -webkit-transition: all .5s ease-out;
+            transition: all .5s ease-out
+        }
+
+        @media (min-width:765px) {
+            .header .menu .swiper-pagination .swiper-pagination-bullet {
+                width: 45px;
+                margin-right: 30px
+            }
+        }
+
+        .header .menu .swiper-pagination .swiper-pagination-bullet:last-child {
+            margin-right: 0
+        }
+
+        .header .menu .swiper-pagination .swiper-pagination-bullet:before {
+            content: "";
+            width: 100%;
+            height: 2px;
+            background-color: hsla(0, 0%, 100%, .5);
+            position: absolute;
+            top: 50%;
+            left: 0;
+            margin-top: -1px;
+            -webkit-transition: all .2s ease;
+            transition: all .2s ease
+        }
+
+        @media (min-width:765px) {
+            .header .menu .swiper-pagination .swiper-pagination-bullet:hover:before {
+                content: "";
+                background-color: #1DB6E9
+            }
+
+            .header .menu .swiper-pagination .swiper-pagination-bullet:hover .swiper-pagination-bullet-content {
+                color: #1DB6E9;
+                opacity: 1;
+                -webkit-transition: all .2s ease;
+                transition: all .2s ease;
+                -webkit-transform: translateX(-50%) translateY(2px);
+                transform: translateX(-50%) translateY(2px);
+                padding-top: 35px
+            }
+        }
+
+        .header .menu .swiper-pagination .swiper-pagination-bullet-content {
+            position: absolute;
+            color: #fff;
+            bottom: -20px;
+            left: 50%;
+            -webkit-transform: translateX(-50%) translateY(0);
+            transform: translateX(-50%) translateY(0);
+            opacity: 0;
+            -webkit-transition: all .2s ease .1s;
+            transition: all .2s ease .1s;
+            color: hsla(0, 0%, 100%, .5);
+            font-size: 16px
+        }
+
+        @media (min-width:765px) {
+            .header .menu .swiper-pagination .swiper-pagination-bullet-content {
+                opacity: .5
+            }
+        }
+
+        .header .menu .swiper-pagination .swiper-pagination-bullet-active .swiper-pagination-bullet-content {
+            opacity: 1;
+            -webkit-transform: translateX(-50%) translateY(0);
+            transform: translateX(-50%) translateY(0);
+            color: #1DB6E9
+        }
+
+        .header .menu .swiper-pagination .swiper-pagination-bullet-active:before {
+            content: "";
+            background-color: #1DB6E9
+        }
+
+        .header .menu .swiper-button-prev {
+            display: none;
+            background-image: url(https://www.voellerei.at/img/arrow-gold.svg);
+            background-position: 0;
+            padding-right: 25px;
+            background-size: contain;
+            width: 80px;
+            height: 25px;
+            left: calc(25% - 172px);
+            -webkit-transition: all .3s ease-out;
+            transition: all .3s ease-out
+        }
+
+        .header .menu .swiper-button-prev:hover {
+            -webkit-transform: translateX(-20px);
+            transform: translateX(-20px)
+        }
+
+        @media (min-width:765px) {
+            .header .menu .swiper-button-prev {
+                display: block
+            }
+        }
+
+        .header .menu .swiper-button-next {
+            display: none;
+            background-image: url(https://www.voellerei.at/img/arrow-gold.svg);
+            background-position: 0;
+            padding-right: 25px;
+            -webkit-transform: rotate(180deg);
+            transform: rotate(180deg);
+            background-size: contain;
+            width: 80px;
+            height: 25px;
+            right: calc(25% - 172px);
+            -webkit-transition: all .3s ease-out;
+            transition: all .3s ease-out
+        }
+
+        .header .menu .swiper-button-next:hover {
+            -webkit-transform: rotate(180deg) translateX(-20px);
+            transform: rotate(180deg) translateX(-20px)
+        }
+
+        @media (min-width:765px) {
+            .header .menu .swiper-button-next {
+                display: block
+            }
+        }
+
+        .header .menu .swiper-button-disabled {
+            opacity: 0
+        }
+
+        .header .video__wrapper {
+            position: relative;
+            z-index: 100;
+            width: 100%;
+            height: 100%;
+            display: block;
+            display: none
+        }
+
+        .header .video__wrapper:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            display: block;
+            width: 100%;
+            height: 100%;
+            background-color: #000;
+            z-index: 90
+        }
+
+        .header .video__content {
+            position: relative;
+            top: 50%;
+            -webkit-transform: translateY(-50%);
+            transform: translateY(-50%);
+            z-index: 100;
+            width: 100%;
+            height: auto
+        }
+
+        .header__play {
+            display: none;
+            position: relative;
+            width: 44px;
+            height: 44px;
+            margin: 0 auto;
+            margin-top: 30px;
+            background-color: #eeefea;
+            border-radius: 50%
+        }
+
+        .header__play:before {
+            content: "";
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 2px;
+            background-image: url(https://www.voellerei.at/img/control-play.svg);
+            background-size: 16px;
+            background-repeat: no-repeat;
+            background-position: 50%
+        }
+
+        .nav {
+            display: none
+        }
+    </style>
+
+    <link rel="stylesheet" href="../site/themes/theme/css/style.css" media="no-media">
+
+
+
+
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Jezero Restaurant EN">
+    <meta property="og:description" content="Restaurant">
+    <meta property="og:site_name" content="" />
+    <meta property="og:image"
+        content="/en/img/asset/bWFpbi9mYWNlYm9vay92b2VsbGVyZWlfZmJfb2dfaW1hZ2VSZXN0YXVyYW50LnBuZw==/voellerei_fb_og_imageRestaurant.png?w=1200&h=630&fit=crop&q=85&s=390ba0c5fc8746339e11d4ba1d21155e" />
+
+    <meta name="twitter:card" content="summary_large_image">
+
+    <meta name="twitter:title" content="Restaurant">
+    <meta name="twitter:description" content="Restaurant">
+
+
+    <meta property="pr:id" content="54a41406-1bc2-4fc3-adc6-98ae379ce5cb" />
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="/site/themes/theme/js/../vendor/backword/html5shiv.js"></script>
+    <script src="/site/themes/theme/js/../vendor/backword/respond.min.js"></script>
+    <![endif]-->
+
+    <script>
+        !function (a) { var b = /iPhone/i, c = /iPod/i, d = /iPad/i, e = /(?=.*\bAndroid\b)(?=.*\bMobile\b)/i, f = /Android/i, g = /(?=.*\bAndroid\b)(?=.*\bSD4930UR\b)/i, h = /(?=.*\bAndroid\b)(?=.*\b(?:KFOT|KFTT|KFJWI|KFJWA|KFSOWI|KFTHWI|KFTHWA|KFAPWI|KFAPWA|KFARWI|KFASWI|KFSAWI|KFSAWA)\b)/i, i = /Windows Phone/i, j = /(?=.*\bWindows\b)(?=.*\bARM\b)/i, k = /BlackBerry/i, l = /BB10/i, m = /Opera Mini/i, n = /(CriOS|Chrome)(?=.*\bMobile\b)/i, o = /(?=.*\bFirefox\b)(?=.*\bMobile\b)/i, p = new RegExp("(?:Nexus 7|BNTV250|Kindle Fire|Silk|GT-P1000)", "i"), q = function (a, b) { return a.test(b) }, r = function (a) { var r = a || navigator.userAgent, s = r.split("[FBAN"); if ("undefined" != typeof s[1] && (r = s[0]), s = r.split("Twitter"), "undefined" != typeof s[1] && (r = s[0]), this.apple = { phone: q(b, r), ipod: q(c, r), tablet: !q(b, r) && q(d, r), device: q(b, r) || q(c, r) || q(d, r) }, this.amazon = { phone: q(g, r), tablet: !q(g, r) && q(h, r), device: q(g, r) || q(h, r) }, this.android = { phone: q(g, r) || q(e, r), tablet: !q(g, r) && !q(e, r) && (q(h, r) || q(f, r)), device: q(g, r) || q(h, r) || q(e, r) || q(f, r) }, this.windows = { phone: q(i, r), tablet: q(j, r), device: q(i, r) || q(j, r) }, this.other = { blackberry: q(k, r), blackberry10: q(l, r), opera: q(m, r), firefox: q(o, r), chrome: q(n, r), device: q(k, r) || q(l, r) || q(m, r) || q(o, r) || q(n, r) }, this.seven_inch = q(p, r), this.any = this.apple.device || this.android.device || this.windows.device || this.other.device || this.seven_inch, this.phone = this.apple.phone || this.android.phone || this.windows.phone, this.tablet = this.apple.tablet || this.android.tablet || this.windows.tablet, "undefined" == typeof window) return this }, s = function () { var a = new r; return a.Class = r, a }; "undefined" != typeof module && module.exports && "undefined" == typeof window ? module.exports = r : "undefined" != typeof module && module.exports && "undefined" != typeof window ? module.exports = s() : "function" == typeof define && define.amd ? define("isMobile", [], a.isMobile = s()) : a.isMobile = s() }(this);
+
+        if (isMobile.any) {
+            var root = document.getElementsByTagName('html')[0];
+            root.classList.add('isMobile');
+        }
+        else {
+            var root = document.getElementsByTagName('html')[0];
+            root.classList.add('isNotMobile');
+        }
+
+
+    </script>
+    <script>
+        // IE Custom Event Polyfill
+        !function () { if ("function" == typeof window.CustomEvent) return !1; function t(t, e) { e = e || { bubbles: !1, cancelable: !1, detail: void 0 }; var n = document.createEvent("CustomEvent"); return n.initCustomEvent(t, e.bubbles, e.cancelable, e.detail), n } t.prototype = window.Event.prototype, window.CustomEvent = t }();
+
+        var preload = true;
+        window.dreistLoadedEvent = new CustomEvent('dreistloaded', {});
+        window.hidePreloader = new CustomEvent('hidePreloader', {});
+
+        if (preload) {
+            window.onload = function () {
+                var delta = Date.now() - window.pageLoadTime;
+                if (delta < 2500) {
+                    setTimeout(function () {
+                        window.dispatchEvent(hidePreloader);
+                    }, 2500 - delta);
+                } else {
+                    window.dispatchEvent(hidePreloader);
+                }
+
+                window.dispatchEvent(dreistLoadedEvent);
+            };
+        }
+    </script>
+
+</head>
+
+
+<body>
+    <script>
+        window.pageLoadTime = Date.now();
+    </script>
+    <div class="preloader js-preloader">
+        <div class="preloader__content">
+            <div class="preloader__bar preloader__bar--left js-bar-left-container">
+                <div class="preloader__bar__outer">
+                    <div class="preloader__bar__inner preloader__bar__inner--left js-bar-left-progress"></div>
+                </div>
+            </div>
+            <div class="preloader__logo js-logo">
+                <div class="preloader__logo__inner"></div>
+            </div>
+            <div class="preloader__bar preloader__bar--right js-bar-right-container">
+                <div class="preloader__bar__outer">
+                    <div class="preloader__bar__inner preloader__bar__inner--right js-bar-right-progress"></div>
+                </div>
+            </div>
+        </div>
+        <div class="btn--enter continue-button js-button-continue">enter website</div>
+    </div>
+    <header class="header">
+        <div class="header__wrapper js-logo-wrapper">
+            <a href="index.html" class="header__logo js-header-logo"></a>
+            <div class="header__play js-mobile-video-play"></div>
+        </div>
+        <div class="video__wrapper js-mobile-video-wrapper">
+            <video width="1920" height="1080" allowfullscreen
+                poster="../site/themes/theme/video/poster-voellerei-video.jpg" class="video__content js-mobile-video">
+                <source
+                    src="https://www.voellerei.at/site/themes/theme/video/voellerei-restaurant-bar-saalfelden-video.mp4"
+                    type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+
+        <div class="menu">
+            <div class="swiper-container swiper-container--menu">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide" data-page="home" data-name="Home"
+                        data-src="https://www.voellerei.at/site/themes/theme/video/voellerei-restaurant-bar-saalfelden-video.mp4">
+                        <a class="swiper-slide__link" href="index.html"></a>
+                        <div class="swiper-slide__vignette js-vignette"></div>
+                        <div class="video-placeholder js-placeholder"
+                            style="background-image: url('../site/themes/theme/video/poster-frontpage.jpg');"></div>
+                        <div class="slide-content">
+                            <h2 class="slide-content__headline">Jezero -<br>Restaurant & Bar</h2>
+                            <span class="btn btn--menu slide-content__button js-slide-button">pročitaj više</span>
+                        </div>
+                    </div>
+                    <div class="swiper-slide" data-page="restaurant" data-name="Restaurant"
+                        data-src="https://www.voellerei.at/site/themes/theme/video/cinemagraph-restaurant.mp4">
+                        <a class="swiper-slide__link" href="restaurant.html"></a>
+                        <div class="swiper-slide__vignette js-vignette"></div>
+                        <div class="video-placeholder js-placeholder"
+                            style="background-image: url('../site/themes/theme/video/poster-restaurant.jpg');"></div>
+                        <div class="slide-content">
+                            <h2 class="slide-content__headline">The Restaurant</h2>
+                            <span class="btn btn--menu slide-content__button js-slide-button">pročitaj više</span>
+                        </div>
+                    </div>
+                    <div class="swiper-slide" data-page="bar" data-name="Bar"
+                        data-src="https://www.voellerei.at/site/themes/theme/video/cinemagraph-bar.mp4">
+                        <a class="swiper-slide__link" href="bar.html"></a>
+                        <div class="swiper-slide__vignette js-vignette"></div>
+                        <div class="video-placeholder js-placeholder"
+                            style="background-image: url('../site/themes/theme/video/poster-bar.jpg')"></div>
+                        <div class="slide-content">
+                            <h2 class="slide-content__headline">The Bar</h2>
+                            <span class="btn btn--menu slide-content__button js-slide-button">pročitaj više</span>
+                        </div>
+                    </div>
+                    <div class="swiper-slide" data-page="contact" data-name="Contact"
+                        data-src="https://www.voellerei.at/site/themes/theme/video/cinemagraph-kontakt.mp4">
+                        <a class="swiper-slide__link" href="contact.html"></a>
+                        <div class="swiper-slide__vignette js-vignette"></div>
+                        <div class="video-placeholder js-placeholder"
+                            style="background-image: url('../site/themes/theme/video/poster-kontakt.jpg');"></div>
+                        <div class="slide-content">
+                            <h2 class="slide-content__headline">Contact</h2>
+                            <span class="btn btn--menu slide-content__button js-slide-button">pročitaj više</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-pagination swiper-pagination-bullets"></div>
+        </div>
+    </header>
+
+    <div class="ui">
+        <div class="ui__inner">
+            <div class="ui__element ui__menu js-menu no-barba">
+                <div class="ui__menu__icon js-menu-icon">
+                    <div class="ui__menu__line ui__menu__line--top"></div>
+                    <div class="ui__menu__line ui__menu__line--middle"></div>
+                    <div class="ui__menu__line ui__menu__line--bottom"></div>
+                </div>
+                <span class="ui__menu__text js-menu-text">Navigacija</span>
+            </div>
+            <div class="ui__element ui__lang js-language no-barba">
+                <a href="index.html" hreflang="en" class="ui__lang__item no-barba is-active"><span>ba</span></a>
+                <a href="index.html" hreflang="de" class="ui__lang__item no-barba "><span>en</span></a>
+
+            </div>
+            <div class="ui__element ui__reservation js-reservation">
+                <span class="ui__reservation__item ui__reservation__text">
+                    <span class="ui__reservation__text__content">Rezervacije</span>
+                    <span class="ui__reservation__text__phone">+387 35 561 222</span>
+                </span>
+                <a href="tel:+43658270703" class="js-phone-link">
+                    <svg class="ui__reservation__item ui__reservation__icon" width="18px" height="21px"
+                        viewBox="0 0 18 21" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                        xmlns:xlink="http://www.w3.org/1999/xlink">
+                        <g id="ui__reservation__icon__id" stroke="none" stroke-width="1" fill="none"
+                            fill-rule="evenodd">
+                            <g class="ui__reservation__phone" id="Desktop-02-Copy"
+                                transform="translate(-1874.000000, -31.000000)" fill="#FFFFFF">
+                                <g id="Group-10-Copy-5" transform="translate(1777.000000, 21.000000)">
+                                    <path
+                                        d="M110.148201,16.5580126 C108.987817,16.391165 108.001617,15.9218635 107.289359,14.9799488 C107.624227,13.0714804 108.717138,11.305164 109.917464,10 C112.195837,10 115.423603,12.445999 114.843134,14.9799488 C113.907666,19.0631364 107.206831,29.116877 102.736878,30.7467003 C100.108773,31.7058686 98.1995376,29.7768433 97,27.7130305 C97.1449445,26.1629089 100.608633,23.3034993 101.099322,23.4539414 C102.190569,23.7884488 102.999432,24.5150315 103.386012,25.6015811 L110.148201,16.5580126 Z"
+                                        id="Page-1"></path>
+                                </g>
+                            </g>
+                        </g>
+                    </svg>
+                </a>
+            </div>
+            <div class="ui__element ui__skip-video js-skip-video">
+                <div class="ui__skip-video__wrapper">
+                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                        x="0px" y="0px" viewBox="0 0 24 24" style="enable-background:new 0 0 24 24;"
+                        xml:space="preserve">
+                        <style type="text/css">
+                            .mousexsvg-0 {
+                                fill: none;
+                                stroke: #ffffff;
+                                stroke-linecap: round;
+                                stroke-linejoin: round;
+                                stroke-miterlimit: 10;
+                            }
+
+                            .mousexsvg-1 {
+                                fill: #ffffff;
+                            }
+
+                            .mousesvg-1 {
+                                fill: #ffffff;
+                            }
+
+                            .mousesvg-2 {
+                                fill: none;
+                            }
+                        </style>
+                        <g>
+                            <g>
+                                <g>
+                                    <path class="mousexsvg-0"
+                                        d="M19.5,17.5c0,3.3-2.7,6-6,6h-3c-3.3,0-6-2.7-6-6v-11c0-3.3,2.7-6,6-6h3c3.3,0,6,2.7,6,6V17.5z" />
+                                    <path class="mousexsvg-1 mousesvg-wheel" d="M12.8,7.4c0,0.5-0.3,0.9-0.8,0.9l0,0c-0.4,0-0.8-0.4-0.8-0.9V5.6c0-0.5,0.3-0.9,0.8-0.9l0,0
+                                c0.4,0,0.8,0.4,0.8,0.9V7.4z" />
+                                </g>
+                            </g>
+                        </g>
+                        <g>
+                            <rect class="mousesvg-2" width="24" height="24" />
+                        </g>
+                    </svg>
+                </div>
+            </div>
+            <div class="ui__element ui__volume js-volume no-barba is-active hide-if-mobile">
+                <div class="ui__volume__slide"></div>
+                <div class="ui__volume__slide"></div>
+                <div class="ui__volume__slide"></div>
+                <div class="ui__volume__slide"></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="barba-wrapper">
+        <div class="barba-container" data-namespace="restaurant">
+
+            <div class="vertical-line">
+                <div class="vertical-line__text">
+                    <span>Scroll</span>
+                </div>
+                <div class="vertical-line__inner"></div>
+            </div>
+
+            <section class="section section--restaurant-intro" data-section-name="lukas-ziesel">
+                <div class="container">
+                    <div class="row">
+                        <div class="gr-24">
+                            <div class="restaurant-intro">
+                                <div class="restaurant-intro__bg">
+                                </div>
+                                <div class="restaurant-intro__img">
+                                    <div class="row">
+                                        <div class="gr-24 gr-16@md gr-20@lg gr-centered@md">
+                                            <div class="restaurant-intro__img__lukas">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="restaurant-intro__content text-center">
+                                    <div class="row">
+                                        <div class="gr-24 gr-20@md gr-16@lg gr-centered@md">
+                                            <div class="subline">
+                                                <span>
+                                                    Restoran
+                                                </span>
+                                            </div>
+                                            <h1 class="h1 h1--line-after">
+                                                Bilo da se radi o poslu ili privatno - naš tim zna kako uživati u
+                                                životu.
+                                            </h1>
+                                            <p>Ispod svježe izglačane, snježno bijele kuharske jakne možete vidjeti
+                                                šarenu tetoviranu ruku koja će se precizno rezati po svežem ulovljenom
+                                                čaršiji. Kad god naš tim započne kuhati u njihovoj kuhinji, oni su svom
+                                                elementu. To je nešto što ne vidite, ali možete i da probate.
+                                            </p>
+                                            <p>Nakon što su radili kao kuvari u nekim od najboljih svjetskih restorana,
+                                                konačno je došlo vreme da obasjaju Modračku kuhinju svojim
+                                                sposobnostima. Restoran u kojem ljudi svi zajedno uživaju u dobrom
+                                                društvu i kušaju lokalne delicije. Restoran u kojem ćete se možda
+                                                prejesti - ali uvijek idite kući sa dobrim osjećajem i osmijehom na
+                                                licu.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="vertical-line vertical-line--small">
+                                <div class="vertical-line__inner"></div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="section section--product-slider product-slider--herb" data-section-name="Regional products"
+                data-product="herbs">
+                <div class="container">
+                    <div class="product-slider">
+                        <div class="row row-align-middle@md">
+                            <div
+                                class="gr-24 gr-18@sm prefix-3@sm gr-8@nav prefix-0@nav push-15@nav product-slider__product__wrapper">
+                                <div class="product-slider__product" id="product-slider__product">
+                                    <img alt="Jezero Saalfelden Restaurant & Bar - Harald Salzmann Cocktail"
+                                        class="product-slider__product__initial" id="product-slider__product__initial"
+                                        src="../site/themes/theme/img/herbs/voellerei-saalfelden-produkte-aus-der-region-01.png">
+                                    <canvas class="product-slider__product__canvas" height="1024"
+                                        id="product-slider__product__canvas" width="1024">
+                                    </canvas>
+                                    </img>
+                                </div>
+                                <div class="product-slider__slider__wrapper">
+                                    <div class="product-slider__slider__target">
+                                    </div>
+                                    <input max="100" min="0" step="2.0833333333333" type="range" value="0" />
+                                </div>
+                            </div>
+                            <div class="gr-24 gr-14@nav pull-8@nav product-slider__content text-center text-left@nav">
+                                <div class="subline">
+                                    <span>
+                                        Najbolji kvalitet
+                                    </span>
+                                </div>
+                                <h2 class="h2">
+                                    Lokalno. Lično. Autentično.
+                                </h2>
+                                <p>
+                                    Kad god je to moguće, biramo proizvode iz naše regije. Ne samo zbog lokalnog
+                                    proizvodi garantiraju najbolji kvalitet, ali jednostavno zato što više volimo
+                                    osobno odnos s našim dobavljačima. Izborom lokalnih dobavljača uvijek možemo
+                                    posjetiti direktno ih sami, provjerite kvalitetu svojih proizvoda i dobili
+                                    inspiraciju za nova jela. Ne samo što nam daje dobar osjećaj da znamo gdje točno
+                                    naši proizvodi dolaze iz, takođe osiguravaju vrhunski ukus.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="vertical-line vertical-line--small">
+                            <div class="vertical-line__inner"></div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+            <section class="section section--alacarte" data-section-name="a-la-carte">
+                <div class="container">
+                    <div class="row row-align-middle@sm ">
+                        <div class="gr-24 gr-12@nav">
+                            <div class="alacarte__img__wrapper">
+                                <div class="alacarte__img__wrapper__bg">
+                                </div>
+                                <div class="swiper-on-mobile">
+                                    <div class="alacarte__img__pre swiper-on-mobile__item">
+                                        <img alt="Jezero Restaurant Saalfelden - Vorspeise" class="img-responsive"
+                                            src="../site/themes/theme/img/voellerei-a-la-carte-bohnen.png">
+
+                                    </div>
+                                    <div class="alacarte__img__main swiper-on-mobile__item">
+                                        <img alt="Jezero Restaurant Saalfelden - Hauptspeise" class="img-responsive"
+                                            src="../site/themes/theme/img/voellerei-a-la-carte-fleisch.png">
+                                    </div>
+                                    <div class="alacarte__img__side swiper-on-mobile__item">
+                                        <img alt="Jezero Restaurant Saalfelden - Vorspeise gefüllte Zwiebel"
+                                            class="img-responsive"
+                                            src="../site/themes/theme/img/voellerei-a-la-carte-zwiebel.png">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="gr-24 text-center gr-12@nav text-left@nav">
+                            <div class="restaurant--alacarte">
+                                <div class="subline">
+                                    <span>
+                                        Šta okusiti „à la carte“
+                                    </span>
+                                </div>
+                                <h2 class="h2">
+                                    Sezonska jela od „Jezera“
+                                </h2>
+                                <p>
+                                    Možda smo to već spomenuli, ali volimo koristiti lokalne sastojke. Jedan razlog je
+                                    naravno neusporedivo dobar ukus, još jedna prednost je ta što jesi uvek inspirisan
+                                    da kreira nove recepte. Zbog sezonskih promjena u našim proizvođačima može nam
+                                    pružiti da nam se stalno postavlja izazov da smislimo nove menije. To je  ne samo da
+                                    nas zabavlja, već nudi i našim gostima raznoliku, kulinarsku ponudu.
+                                </p>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="vertical-line vertical-line--small">
+                        <div class="vertical-line__inner"></div>
+                    </div>
+
+                </div>
+            </section>
+            <section class="section section--video-content" data-section-name="vollerei-menu">
+                <div class="container video-content">
+                    <div class="row">
+                        <div class="gr-24 gr-22@md gr-centered@md gr-18@lg">
+                            <div class="video-content__video embed-responsive embed-responsive-16by9"
+                                id="content-video">
+                                <div class="video-placeholder js-placeholder"
+                                    style="background-image: url('../site/themes/theme/video/poster-voellerei-menue-unser-highlight.jpg');"
+                                    data-src="https://www.voellerei.at/site/themes/theme/video/voellerei-menue-unser-highlight.mp4">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="gr-24 gr-22@md gr-centered@md gr-16@lg text-center">
+                            <div class="video-content__content">
+                                <div class="subline">
+                                    <span>
+                                        Naš poseban naglasak:
+                                    </span>
+                                </div>
+                                <h2 class="h2 h2--line-after">
+                                    „Jezero“ meni
+                                </h2>
+                                <p> Najbolji način da iskusimo što za nas znači "prepadanje" je naručiti naš "Jezero"
+                                    cijeli stol tako da ljudi moraju dijeliti hranu baš kao u dobrom starom
+                                    meni. Posebna stvar u tome je što to ne naručujete pojedinačno već za
+                                    dana.
+                                </p>
+                                <p>I ovako to funkcionira: Cijela tablica je u potpunosti prekrivena raznovrsnim
+                                    predjela za vas i vaše voljene uživanje. Otkrijte i razgovarajte o novim ukusima
+                                    i uživajte u vremenu sa porodicom i prijateljima. Baš kao i starter - i mi
+                                    poslužiti glavni meni za cijeli stol, a ko još ima mjesta za desert, može
+                                    prepustite se potpuno prekrivenom stolu austrijskih slatkih iskušenja: pun radosti i
+                                    besplatno
+                                    krivice.<br>
+                                </p>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="vertical-line vertical-line--small">
+                        <div class="vertical-line__inner"></div>
+                    </div>
+
+                </div>
+            </section>
+            <section class="section section--newsletter" data-section-name="newsletter">
+                <div class="container section--location__container">
+                    <div class="row">
+                        <div class="gr-24 gr-24@md gr-centered@md gr-20@nav gr-18@lg text-center">
+                            <div class="newsletter">
+                                <div class="subline">
+                                    <span>
+                                        Šta je novo:
+                                    </span>
+                                </div>
+                                <h2 class="h2 h2--line-after">
+                                    Naše „Jezero“ -Novice
+                                </h2>
+                                <p>
+                                    Budući da redovno menjamo svoj meni, želimo da osiguramo da uvijek znate što
+                                    biti serviran. Zato budite u toku s našim biltenom „Jezero“!
+                                </p>
+
+                                <div class="newsletter__form">
+                                    <form
+                                        action="http://voellerei.us16.list-manage.com/subscribe/post?u=90fcddd2dbb19bae2ece08c73&amp;id=8a10f3d848"
+                                        method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form"
+                                        class="validate" target="_blank" novalidate>
+                                        <div class="row">
+                                            <div class="gr-24 gr-8@md">
+                                                <div class="newsletter__field-group">
+                                                    <input type="text" value="" name="FNAME" class="" id="mce-FNAME">
+                                                    <label for="mce-FNAME">Name</label>
+                                                </div>
+                                            </div>
+                                            <div class="gr-24 gr-8@md">
+                                                <div class="newsletter__field-group">
+
+                                                    <input type="email" value="" name="EMAIL" class="required email"
+                                                        id="mce-EMAIL">
+                                                    <label for="mce-EMAIL">E-Mail</label>
+                                                </div>
+                                            </div>
+                                            <div class="gr-24 hide">
+                                                <div id="mce-responses" class="clear">
+                                                    <div class="response" id="mce-error-response" style="display:none">
+                                                    </div>
+                                                    <div class="response" id="mce-success-response"
+                                                        style="display:none"></div>
+                                                </div>
+                                                <!-- catch them bots -->
+                                                <div style="position: absolute; left: -5000px;" aria-hidden="true">
+                                                    <input type="text" name="b_90fcddd2dbb19bae2ece08c73_8a10f3d848"
+                                                        tabindex="-1" value=""></div>
+                                            </div>
+
+                                            <div class="gr-24 gr-8@md">
+                                                <input type="submit" value="send" name="subscribe"
+                                                    id="mc-embedded-subscribe" class="btn--submit">
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="newsletter__eyecatcher"></div>
+                            </div>
+                        </div>
+                        <div class="vertical-line vertical-line--small">
+                            <div class="vertical-line__inner"></div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </section>
+            <section class="section section--product-special" data-section-name="first-class-wines">
+                <div class="container">
+                    <div class="row row-align-middle@nav text-center text-left@nav text-content--offset">
+                        <div class="gr-14 prefix-5@xs prefix-5@sm gr-7@nav prefix-3@nav product-special__img--wine">
+                            <img class="img-responsive" src="../site/themes/theme/img/voellerei-wine-glass.png"
+                                alt="Jezero Saalfelden Restaurant & Bar - Weinglas">
+                        </div>
+                        <div class="gr-24 gr-12@nav prefix-0@nav">
+                            <div class="subline">
+                                <span>
+                                    Ne možete kupiti sreću, ali možete kupiti vino:
+                                </span>
+                            </div>
+                            <h2 class="h2">
+                                Prvoklasna vina iz najboljih europskih vinskih regija
+                            </h2>
+                            <p>
+                                Krutost bez vina je poput zime bez snijega. Zato smo neke od njih istraživali Najbolje
+                                europske vinske regije u Europi i kurirao je ukusan izbor vrhunskih vina za naši gosti.
+                                Od laganih i klasično elegantnih do plemenitih i punih tijela - naša vina savršeno
+                                upotpunite svoje kulinarsko putovanje „Jezerom“. I za one koji ne mogu da odluče koje
+                                vino bi trebali naručiti, oni mogu jednostavno pitati našeg sommeliera za savjet.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="vertical-line vertical-line--small">
+                        <div class="vertical-line__inner"></div>
+                    </div>
+
+                </div>
+            </section>
+            <section class="section section--location" data-section-name="">
+                <div class="container section--location__container">
+                    <div class="row">
+                        <div class="gr-24 text-center">
+                            <div class="subline">
+                                <span>
+                                    Stara zidana s novim njuhom:
+                                </span>
+                            </div>
+                            <h2 class="h2">Otkrijte jedinstvenu atmosferu „Jezeru“</h2>
+                        </div>
+                    </div>
+                    <div class="row location__swiper__row">
+                        <div class="location__swiper__bg"
+                            style="background-image: url('en/img/asset/bWFpbi9pbWcvdm9lbGxlcmVpLXJlc3RhdXJhbnQtc2FhbGZlbGRlbi0wMy5qcGc%3d/voellerei-restaurant-saalfelden-033675.jpg?w=800&amp;h=600&amp;fit=crop&amp;q=85&amp;s=7733cd54f62c7757a3e393a4ca7d5065');">
+                        </div>
+                        <div class="gr-24 gr-14@nav">
+                            <div class="location__swiper__wrapper">
+                                <div class="swiper-container location__swiper">
+                                    <div class="swiper-wrapper">
+                                        <div class="swiper-slide">
+                                            <div class="location__swiper__img"
+                                                style="background-image: url('en/img/asset/bWFpbi9pbWcvdm9lbGxlcmVpLXJlc3RhdXJhbnQtc2FhbGZlbGRlbi1sdWthcy16aWVzZWwtMDMxLmpwZw%3d%3d/voellerei-restaurant-saalfelden-lukas-ziesel-03137df.jpg?w=800&amp;h=600&amp;fit=crop&amp;q=85&amp;s=984fe6bc83fbf03e9a20fc27418b7d02');">
+                                            </div>
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <div class="location__swiper__img"
+                                                style="background-image: url('en/img/asset/bWFpbi9pbWcvdm9lbGxlcmVpLXJlc3RhdXJhbnQtc2FhbGZlbGRlbi1jaGVmcy10YWJsZS0wMS5qcGc%3d/voellerei-restaurant-saalfelden-chefs-table-0192f2.jpg?w=800&amp;h=600&amp;fit=crop&amp;q=85&amp;s=a0cc38c83e17f4b87e8b75862cc825a5');">
+                                            </div>
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <div class="location__swiper__img"
+                                                style="background-image: url('en/img/asset/bWFpbi9pbWcvdm9lbGxlcmVpLXJlc3RhdXJhbnQtc2FhbGZlbGRlbi0xMC5qcGc%3d/voellerei-restaurant-saalfelden-10122d.jpg?w=800&amp;h=600&amp;fit=crop&amp;q=85&amp;s=e74fc49019c29cda36177f028871100c');">
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="location__swiper__control location__swiper__control--prev"></div>
+                                <div class="location__swiper__control location__swiper__control--next"></div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="section--location__content text-center">
+                        <div class="row">
+                            <div class="gr-24 gr-22@md gr-centered@md gr-16@lg ">
+                                <p>
+                                    „Jezero“ se nalazi u hotelu Senad od Bosne izgrađenom 1996. godine. Zahvaljujući
+                                    spoj starog peščara-svoda i njegova suvremenog dizajna restoran ima vrlo jedinstven
+                                    šarm. Naši gosti mogu se opustiti u salonu sa svojim monumentalnim lusterom i
+                                    detaljno uređenim štukaturama. Za više ekskluzivno iskustvo pozivamo naše goste da
+                                    se sjednu i uživaju u njihovoj užurbanosti naš VIP kuhar sto. Ako nas posjetite
+                                    tokom ljeta, možete uživati u našim jelima i pićima u našem vrtu koji je okružen
+                                    starim kestenom i ukrašen impresivan pogled na naše poznato jezero „Modrac“.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="gr-24 text-center">
+                                <a class="btn" href="contact.html" id="more_posts">Rezervišite stol</a>
+                            </div>
+                        </div>
+                        <div class="vertical-line vertical-line--small">
+                            <div class="vertical-line__inner"></div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+            <section class="section section--video-content" data-section-name="event-location>">
+                <div class="container video-content">
+                    <div class="row">
+                        <div class="gr-24 gr-22@md gr-centered@md gr-18@lg">
+                            <div class="video-content__video embed-responsive embed-responsive-16by9"
+                                id="content-video">
+                                <div class="video-placeholder js-placeholder"
+                                    style="background-image: url('../site/themes/theme/video/poster-eventlocation-voellerei-saalfelden.jpg');"
+                                    data-src="https://www.voellerei.at/site/themes/theme/video/voellerei-saalfelden-event-location-fuer-hochzeit-geburtstag-taufe-familienfeiern.mp4">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="gr-24 gr-22@md gr-centered@md gr-16@lg text-center">
+                            <div class="video-content__content">
+                                <div class="subline">
+                                    <span>
+                                        Savršena lokacija za događaje
+                                    </span>
+                                </div>
+                                <h2 class="h2 h2--line-after">
+                                    Idealno mjesto za nezaboravne zabave u Prokosović regiji.
+                                </h2>
+                                <p>
+                                    Planirate li veliku zabavu i još uvijek niste pronašli pravi restoran? Nemoj te
+                                    tražiti dalje jer kod nas dobijate dvije po cijeni jednog - našeg „Jezera“ restoran
+                                    i bar. Naš prelijepi vrt mogao bi biti savršena lokacija za vaš sljedeći ljetni
+                                    festival, a neobičan salon nudi idiličnu atmosferu za ugodno porodična zabava. Bilo
+                                    da organizujete vjenčanje za stotinu ljudi, ili rođendan zabava za deset pobrinut
+                                    ćemo se da vaša zabava bude nezaboravna.
+                                </p>
+
+                                <a class="btn" href="contact.html">
+                                    Rezervišite vaše mijesto
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="vertical-line vertical-line--small">
+                        <div class="vertical-line__inner"></div>
+                    </div>
+
+                </div>
+            </section>
+
+
+
+
+            <div class="ui__element ui__section ui__section__category js-section-progress-category">
+                <div class="ui__section__category__text">
+                    <ul class="ui__section__category__text__content js-section-progress-category-text">
+                        <li>Naš tim</li>
+                        <li>Regionalni proizvodi</li>
+                        <li>A la Carte</li>
+                        <li>Jezero Meni</li>
+                        <li>Newsletter</li>
+                        <li>Prvoklasna vina</li>
+                        <li>Restoran</li>
+                        <li>Lokacija događaja</li>
+                        <li>Instagram</li>
+
+                    </ul>
+                </div>
+                <div class="ui__section__category__number js-section-progress-category-number-wrapper">
+                    <div class="ui__section__category__decadic__wrapper">
+                        <ul class="js-section-progress-category-decadic">
+                            <li>0</li>
+
+                        </ul>
+                    </div>
+                    <div class="ui__section__category__number__wrapper">
+                        <ul class="js-section-progress-category-number">
+                            <li>1</li>
+                            <li>2</li>
+                            <li>3</li>
+                            <li>4</li>
+                            <li>5</li>
+                            <li>6</li>
+                            <li>7</li>
+                            <li>8</li>
+                            <li>9</li>
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="ui__element ui__section ui__section__progress js-section-progress-bar">
+                <div class="ui__section__progress__mainline js-section-progress-bar-mainline"></div>
+                <div class="ui__section__progress__lines js-section-progress-bar-lines">
+                    <div class="ui__section__progress__lines__line"></div>
+                    <div class="ui__section__progress__lines__line"></div>
+                    <div class="ui__section__progress__lines__line"></div>
+                    <div class="ui__section__progress__lines__line"></div>
+                    <div class="ui__section__progress__lines__line"></div>
+                    <div class="ui__section__progress__lines__line"></div>
+                    <div class="ui__section__progress__lines__line"></div>
+                    <div class="ui__section__progress__lines__line"></div>
+                    <div class="ui__section__progress__lines__line"></div>
+
+                </div>
+            </div>
+
+
+
+        </div>
+
+    </div>
+
+    <div class="footer" id="footer">
+        <div class="row no-margin">
+            <div class="gr-24 gr-8@md text-center text-left@md footer__column">
+                <a href="#" id="get_imprint" data-page-id="b233a6b7-d781-43ce-8e99-a1ed7db34c66"
+                    class="footer__link js-modal no-barba">
+                    Otisak
+                </a>
+                <a href="#" id="get_imprint" data-page-id="bf5207b4-4269-4031-8e47-6d3bd7c7f52d"
+                    class="footer__link js-modal no-barba">
+                    Privatnost
+                </a>
+                <a href="contact.html" class="footer__link ">
+                    Kontakt
+                </a>
+            </div>
+            <div class="gr-24 gr-8@md text-center footer__column">
+                <a href="https://www.facebook.com/hotelsenadodbosne" target="_blank"
+                    class="footer__social-link footer__social-link--facebook">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                        <path
+                            d="M448 80v352c0 26.5-21.5 48-48 48h-85.3V302.8h60.6l8.7-67.6h-69.3V192c0-19.6 5.4-32.9 33.5-32.9H384V98.7c-6.2-.8-27.4-2.7-52.2-2.7-51.6 0-87 31.5-87 89.4v49.9H184v67.6h60.9V480H48c-26.5 0-48-21.5-48-48V80c0-26.5 21.5-48 48-48h352c26.5 0 48 21.5 48 48z" />
+                    </svg>
+                </a>
+
+                <a href="https://www.instagram.com/restoranjezero2311/" target="_blank"
+                    class="footer__social-link footer__social-link--instagram">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                        <path
+                            d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z" />
+                    </svg>
+                </a>
+
+
+
+                <a href="https://goo.gl/maps/hZcXJHXEiuU7sPY38" target="_blank"
+                    class="footer__social-link footer__social-link--google">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 488 512">
+                        <path
+                            d="M488 261.8C488 403.3 391.1 504 248 504 110.8 504 0 393.2 0 256S110.8 8 248 8c66.8 0 123 24.5 166.3 64.9l-67.5 64.9C258.5 52.6 94.3 116.6 94.3 256c0 86.5 69.1 156.6 153.7 156.6 98.2 0 135-70.4 140.8-106.9H248v-85.3h236.1c2.3 12.7 3.9 24.9 3.9 41.4z" />
+                    </svg>
+                </a>
+            </div>
+            <div class="gr-24 gr-8@md text-center text-right@md footer__column">
+                <a href="https://dzenanh9.github.io/" target="_blank" class="dreist__link">
+
+                    <span class="dreist__svg--first">
+                        <svg version="1.1" class="dreist__svg dreist__svg--first" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 494.1 134.4" style="enable-background:new 0 0 494.1 134.4;" xml:space="preserve">
+                            <g transform="translate(-0.1)"><path d="M43.6,34.4c19.3,0,25,7.6,25,7.6H69s-.2-1.9-.2-4.3V9.4L100.9,0V132.2h-30v-6.3c0-3,.2-5.4.2-5.4h-.4s-8,13.9-27.6,13.9c-26,0-43-20.4-43-50.1C0,54.1,18.2,34.4,43.6,34.4ZM51,107.9c9.6,0,18.7-7,18.7-23.6,0-11.5-6.1-22.8-18.7-22.8-10,0-18.7,8.2-18.7,22.8C32.3,98.6,39.9,107.9,51,107.9Z"/><path d="M118.5,36.6h65s-1.734,18.4-2.067,19.067c-.333.333-42.333,60.667-42.333,60h42.333V132.1H118.5V115.667l45.6-60H118.5Z"/><path d="M238.5,34.4c28.2,0,44.2,19.7,44.2,46.2,0,3.2-.7,10-.7,10H221.7c2.4,11.7,12.1,17.1,22.3,17.1,13.7,0,26.3-9.6,26.3-9.6l11.9,22.4s-15.4,13.9-40.8,13.9c-34.1,0-52.5-24.7-52.5-50.1C188.8,56.3,207.7,34.4,238.5,34.4Zm11.9,37.9c0-7.2-5-13.7-12.6-13.7-9.3,0-13.7,6.7-15.4,13.7Z"/><path d="M53.529-98.647Q79-98.647,79-64.354V-3.247H56.471V-59.059q0-10.339-2.48-15.466t-7.859-5.127q-7.144,0-10.549,7.144t-3.4,24.291V-3.247H9.821V-96.882H27.556l2.69,12.02h1.429a23.3,23.3,0,0,1,8.7-10.17A23.951,23.951,0,0,1,53.529-98.647Z" transform="translate(278.277 135.247)"/><path d="M11.371-89.715a56.092,56.092,0,0,1,30.483-9.106q16.087,0,24.152,8.759t8.065,24.976V-.217H57.161L52.565-13.4h-.52Q47.014-4.987,41.551-1.735T27.675,1.517q-10.667,0-16.781-7.935T4.78-29.053q0-14.7,8.282-22.2t25.106-8.282L51-60.056v-6.938Q51-80.523,39.3-80.523q-8.586,0-19.946,6.764ZM28.629-28.489q0,11.968,8.5,11.968,6.331,0,10.1-5.68T51-37.335v-8.152l-7.111.347Q36-44.706,32.315-40.63T28.629-28.489Z" transform="translate(358.176 133.221)"/><path d="M53.529-98.647Q79-98.647,79-64.354V-3.247H56.471V-59.059q0-10.339-2.48-15.466t-7.859-5.127q-7.144,0-10.549,7.144t-3.4,24.291V-3.247H9.821V-96.882H27.556l2.69,12.02h1.429a23.3,23.3,0,0,1,8.7-10.17A23.951,23.951,0,0,1,53.529-98.647Z" transform="translate(428.277 137.247)"/></g>
+                                                        
+                                                    </svg>
+                    </span><span class="dreist__svg--second">
+                        <svg version="1.1" class="dreist__svg" xmlns="http://www.w3.org/2000/svg"
+                            xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 39.2 134.4"
+                            style="enable-background:new 0 0 39.2 134.4;" xml:space="preserve">
+                            <g>
+                                <path d="M10.7,104.6h28.5v28.5H10.7V104.6z" />
+                            </g>
+                        </svg>
+                    </span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="imprint imprint-dreist js-modal-container" id="imprint imprint-dreist">
+        <div class="imprint-dreist__header">
+            <div class="imprint-dreist__close js-modal-close"></div>
+        </div>
+        <div class="imprint-dreist__wrapper js-modal-wrapper">
+            <div class="imprint-dreist__content js-modal-content" id="imprint-dreist__content"></div>
+        </div>
+        <div class="imprint-dreist__pending js-modal-pending"></div>
+    </div>
+
+    <script>
+        window.addEventListener("load", function () {
+            window.cookieconsent.initialise({
+                "palette": {
+                    "popup": {
+                        "background": "#fff"
+                    },
+                    "button": {
+                        "background": "transparent",
+                        "border": "#1DB6E9",
+                        "text": "#1DB6E9"
+                    }
+                },
+                "position": "bottom-right",
+                "content": {
+                    "message": "This website uses cookies.",
+                    "dismiss": "OK",
+                    "link": "pročitaj više",
+                    "href": "/en/privacy"
+                }
+            })
+        });
+    </script>
+
+    <script type='text/javascript'>
+        /* <![CDATA[ */
+        var page_params = {
+            "ajax_url": "https://www.voellerei.at/!/page-content/api/",
+            "ig_api_url": "https://www.voellerei.at/!/instagram/api/",
+            "dist_url": "https://www.voellerei.at/site/themes/theme/",
+            "lang": "en",
+            "load_more": "load more",
+            "loading": "loading...",
+            "no_more_posts": "no more posts available",
+            "ig_post_count": 59
+        };
+    /* ]]> */
+    </script>
+
+    <link rel="stylesheet" href="../site/themes/theme/css/style.css">
+    <script src="../site/themes/theme/js/main.js" async></script>
+    <link rel="stylesheet" href="../../use.typekit.net/yml1ysq.css">
+
+    <script>
+        var gaDisableStr = 'ga-disable-UA-93238523-1';
+
+        function gaOptout() {
+            document.cookie = gaDisableStr + '=true; expires=Thu, 31 Dec 2099 23:59:59 UTC; path=/';
+            window[gaDisableStr] = true;
+            alert('Google Analytics wurde für diese Webseite in diesem Browser deaktiviert.');
+        }
+
+        if (document.cookie.indexOf(gaDisableStr + '=true') > -1) {
+            // don't fire analytics beacon
+        } else {
+
+            (function (i, s, o, g, r, a, m) {
+                i['GoogleAnalyticsObject'] = r;
+                i[r] = i[r] || function () {
+                    (i[r].q = i[r].q || []).push(arguments)
+                }, i[r].l = 1 * new Date();
+                a = s.createElement(o),
+                    m = s.getElementsByTagName(o)[0];
+                a.async = 1;
+                a.src = g;
+                m.parentNode.insertBefore(a, m)
+            })(window, document, 'script', '../../www.google-analytics.com/analytics.js', 'ga');
+
+            ga('create', 'UA-93238523-1', 'auto');
+            ga('set', 'anonymizeIp', true);
+            ga('send', 'pageview');
+        }
+    </script>
+
+</body>
+
+</html>
