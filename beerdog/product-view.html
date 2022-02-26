@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>BeerDog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="style/main.css" />
+    <script src="js/jquery-3.3.1.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/barba.min.js"></script>
+
+</head>
+
+<body>
+    <div id="preloader-wrapper" class="preloader-wrapper">
+        <div id="particles-loader" class="particles-js"></div>
+        <div class="loader-logo">
+            BeerDog
+        </div>
+        <script src="js/particles.js"></script>
+        <script src="js/app.js"></script>
+    </div>
+
+
+    <div class="nav-wrapper ">
+        <div class="hero">
+            <a href="index.html">BeerDog <span class="subhero">Online Beer Shop</span></a>
+        </div>
+        <div class="useracc">
+            <img src="Images/icons/icons8-customer-32.png" alt="User">
+        </div>
+        <a href="cart.html" class="shopCartLink">
+            <div class="shopcart">
+
+                <img src="Images/icons/icons8-shopping-cart-32.png" alt="Cart">
+            </div>
+        </a>
+
+        <div class="search-wrapper ">
+            <div class="filter-wrapper">
+                <div class="filter-box">
+                    Sort by:
+                    <li id="filPrice" class="filter-items">Price</li>
+                    <li id="filABV" class="filter-items">ABV</li>
+                    <li id="filName" class="filter-items">Name</li>
+                </div>
+            </div>
+            <div class="searchbox">
+                <input type="text" name="searchb" placeholder="Search">
+            </div>
+            <a href="products.html">
+                <div class="search-icon">
+                    <img src="Images/icons/icons8-search-32.png" alt="Search">
+                </div>
+            </a>
+        </div>
+
+    </div>
+
+
+
+    <div id="barba-wrapper" class="page-wrapper">
+        <div class="barba-container page-content" data-namespace="view">
+
+            <div id="product-view" class="product-view">
+                <div id="particles-js" class="particles-js"></div>
+                <div class="main-wrapper">
+                    <div id="view-container" class="view-contener">
+                    </div>
+                </div>
+                <script src="js/particles.js"></script>
+                <script src="js/app.js"></script>
+            </div>
+
+
+
+
+        </div>
+    </div>
+
+</body>
+
+</html>
